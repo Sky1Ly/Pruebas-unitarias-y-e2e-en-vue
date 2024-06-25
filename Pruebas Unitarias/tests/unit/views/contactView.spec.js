@@ -1,28 +1,26 @@
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 
-import PostsView from '@/views/PostsView.vue'
+import ContactView from '@/views/ContactView.vue'
 
-
-
-describe('PostsView', () => {
-    test('Probando la existencia del componente o vista PostsView ', async () => {
+describe('ContactView', () => {
+    test('Probando la existencia del componente o vista ContactView ', async () => {
         const router = createRouter({
             history: createWebHistory(),
             routes: [{
                 path: '/posts',
-                name: 'PostsViewVue',
-                component: PostsView
+                name: 'ContactViewVue',
+                component: ContactView
             }],
         })
         router.push('/posts')
         await router.isReady()
 
-        const wrapper = mount(PostsView, {
+        const wrapper = mount(ContactView, {
             global: {
                 plugins: [router]
             }
         })
-        expect(wrapper.findComponent(PostsView).exists()).toBe(true)
+        expect(wrapper.findComponent(ContactView).exists()).toBe(true)
     })
 })
